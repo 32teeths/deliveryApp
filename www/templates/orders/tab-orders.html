@@ -1,0 +1,51 @@
+<ion-view view-title="Orders" cache-view="false">
+    <ion-content class="padding main_content">
+        <div class="text-center" style="padding-top:20%" ng-hide="ordersctrl.orders.length||!ordersctrl.authData||ordersctrl.loading">
+            <img class="" src="img/icons/laptop.png" alt=""/>
+
+            <h3 id="">Looks like you have not ordered any food yet.</h3>
+            <button style="margin-top:80px;" ui-sref="tab.cuisine" class="button button-outline button-assertive">
+                Order now
+            </button>
+        </div>
+        <div class="text-center" style="padding-top:100px;" ng-if="!ordersctrl.authData">
+            <img class="" src="img/icons/manager.png" alt=""/>
+
+            <h3>Login to Eat from Sagar.</h3>
+
+            <p>You have to sign to view your orders .</p>
+            <!--Login Buttons-->
+            <div login-handler auth="ordersctrl.authData" on-login="ordersctrl.loadOrders()"></div>
+        </div>
+        <ion-list>
+            <div class="list">
+                <a href="" class="item text-center" ng-if="ordersctrl.loading">
+                    <ion-spinner class="spinner-assertive"></ion-spinner>
+                </a>
+                <a ng-repeat="order in ordersctrl.orders" class="item item-avatar item-icon-right "
+                   href="#/tab/orders/{{order.$id}}">
+                    <img src="img/icons/cycle.png" ng-if="order.delivery_type">
+                    <img src="img/icons/shop.png" ng-if="!order.delivery_type">
+
+                    <h2>Order:{{order.$id}} </h2>
+
+                    <p>
+                <span ng-repeat="item in order.items">
+                    {{item.dish_name}}{{$last ? '' : ', '}}
+                </span>
+                    </p>
+
+                    <p>{{order.delivery_type?'Will be delivered in':'Pick up in'}} 10 minutes</p>
+
+                    <div ng-switch on="order.order_status">
+                        <b ng-switch-when="0">Processing</b>
+                        <b ng-switch-when="1">Cooking</b>
+                        <b ng-switch-when="2">Dispatched</b>
+                        <b ng-switch-when="3">Delivered</b>
+                    </div>
+                    <i class="icon ion-ios-arrow-right"></i>
+                </a>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

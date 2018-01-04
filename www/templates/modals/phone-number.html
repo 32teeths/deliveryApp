@@ -1,0 +1,31 @@
+
+<ion-modal-view ng-controller = "PhoneCtrl as phonectrl">
+    <ion-header-bar class="">
+        <button class="button button-clear " ng-click="phonectrl.closePhoneNumber()">
+            <i class="ion-arrow-close"></i>
+            Close
+        </button>
+        <h1 class="title">
+            Update Phone Number
+        </h1>
+    </ion-header-bar>
+    <ion-content class="padding main_content">
+        <div class="list card padding list-inset">
+            <form id="" ng-submit="phonectrl.saveNumber()">
+                <label class="item item-input">
+                    <input type="number" ng-model="phonectrl.phone.$value" placeholder="Phone Number">
+                </label>
+                <button type="submit" value="Update" class="button button-block button-dark button-outline">
+                    Update
+                </button>
+            </form>
+        </div>
+        <!--if basket is empty-->
+        <div class="text-center" style="padding-top:10px;" ng-show = "!basketctrl.order.basket.length">
+            <!--<img class="" src="img/icons/phone.png" alt="" />-->
+            <h3 id="">Leave us your phone number</h3>
+            <p>Dont miss a call from us ..</p>
+        </div>
+    </ion-content>
+</ion-modal-view>
+

@@ -1,0 +1,83 @@
+<ion-view view-title="Order Status" cache-view="false">
+    <ion-content class="padding main_content ">
+
+        <div class="row text-center card">
+            <div class="col">
+                <button ng-click="orderstatusctrl.viewOrder()"
+                        class="col button button-small button-outline button-dark">
+                    View order details
+                </button>
+
+            </div>
+            <div class="col">
+                <div round-progress
+                     max="orderstatusctrl.progress.max"
+                     current="orderstatusctrl.progress.current"
+                     color="#45ccce"
+                     bgcolor="#eaeaea"
+                     radius="0"
+                     stroke="10"
+                     semi="false"
+                     rounded="false"
+                     clockwise="false"
+                     responsive="false"
+                     duration="800"
+                     animation="easeInOutQuart"></div>
+            </div>
+            <div class="col">
+                <button class=" button button-small button-outline button-dark col">
+                    Order Time : {{orderstatusctrl.order.time|date:'mediumTime'}}
+                </button>
+                <h5 class=""><strong>Bill Amount : {{orderstatusctrl.order.total}}</strong></h5>
+            </div>
+
+        </div>
+
+        <div class="list card">
+            <a class="item item-avatar item-icon-right" href="#"
+               ng-class="!(orderstatusctrl.order.order_status==0)?'blur':'highlight'">
+                <img src="img/icons/laptop.png">
+
+                <h2>Processing</h2>
+
+                <p>Your order is being processed. This will take max 2 min.</p>
+                <i class="icon"
+                   ng-class="orderstatusctrl.order.order_status<=0?'ion-ios-checkmark-outline':'ion-ios-checkmark'"></i>
+            </a>
+            <a class="item item-avatar item-icon-right" href="#"
+               ng-class="!(orderstatusctrl.order.order_status==1)?'blur':'highlight'">
+                <img src="img/icons/heart.png">
+
+                <h2>Cooking</h2>
+
+                <p>Your food is being prepared.</p>
+                <i class="icon"
+                   ng-class="orderstatusctrl.order.order_status<=1?'ion-ios-checkmark-outline':'ion-ios-checkmark'"></i>
+            </a>
+            <a class="item item-avatar item-icon-right" href="#"
+               ng-class="!(orderstatusctrl.order.order_status==2)?'blur':'highlight'">
+                <img src="img/icons/vespa.png">
+
+                <h2>Dispatched</h2>
+
+                <p>Your food is out for delivery.</p>
+                <i class="icon"
+                   ng-class="orderstatusctrl.order.order_status<=2?'ion-ios-checkmark-outline':'ion-ios-checkmark'"></i>
+            </a>
+            <a class="item item-avatar item-icon-right" href="#"
+               ng-class="!(orderstatusctrl.order.order_status==3)?'blur':'highlight'">
+                <img src="img/icons/approval.png">
+
+                <h2>Delivered</h2>
+
+                <p>Thank you for eating from sagar.</p>
+                <i class="icon"
+                   ng-class="orderstatusctrl.order.order_status<=3?'ion-ios-checkmark-outline':'ion-ios-checkmark'"></i>
+            </a>
+
+
+        </div>
+
+
+    </ion-content>
+</ion-view>

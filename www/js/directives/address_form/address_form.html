@@ -1,0 +1,43 @@
+<form ng-submit="newaddress_ctrl.save_changes()" name="AddressForm">
+
+    <div class="card">
+        <label class="item item-input item-floating-label">
+            <span class="input-label">City</span>
+            <input ng-model="newaddress_ctrl.addressForm.city" type="text" placeholder="City">
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Location</span>
+            <input ng-model="newaddress_ctrl.addressForm.location" type="text" placeholder="Location">
+        </label>
+
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Company(Optional)</span>
+            <input ng-model="newaddress_ctrl.addressForm.company" type="text" placeholder="Company(Optional)">
+        </label>
+
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Flat / House No.</span>
+            <input ng-model="newaddress_ctrl.addressForm.house_number" type="text" placeholder="Flat / House No.">
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Apartment / Locality Name</span>
+            <input ng-model="newaddress_ctrl.addressForm.apartment" type="text"
+                   placeholder="Apartment / Locality Name">
+        </label>
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Post Code(Optional)</span>
+            <input ng-model="newaddress_ctrl.addressForm.postcode" type="number" placeholder="Post Code(Optional)">
+        </label>
+
+        <label class="item item-input item-floating-label">
+            <span class="input-label">Delivery Instructions (Optional)</span>
+            <input ng-model="newaddress_ctrl.addressForm.instructions" type="text"
+                   placeholder="Delivery Instructions (Optional)">
+        </label>
+    </div>
+    <input class="button button-block button-positive" type="submit" name="" id="" value="Add Address"/>
+</form>
+
+<button ng-show="newaddress_ctrl.editMode" class="button button-block button-assertive button-outline"
+        ng-click="newaddress_ctrl.delete_address()">Delete
+</button>

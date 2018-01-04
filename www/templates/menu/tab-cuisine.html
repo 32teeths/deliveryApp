@@ -1,0 +1,28 @@
+<ion-view view-title="Menu">
+    <ion-content class="padding main_content ">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+            </label>
+        </div>
+        <div class="list">
+            <a href="" class="item text-center" ng-show="cuisinectrl.loading">
+                <ion-spinner class="spinner-assertive"></ion-spinner>
+            </a>
+            <a class="item item-avatar" href="#" ng-repeat="cuisine in cuisinectrl.cuisines"
+               ui-sref="tab.menu({'cuisine':cuisine.$id})">
+                <img ng-src="/img/icons/cookie.png">
+                <span class="item-note">
+                  {{cuisine.no_of_dishes}} Dishes
+                </span>
+
+                <h2>{{cuisine.category_name}}</h2>
+
+                <p>{{cuisine.category_caption}}.</p>
+            </a>
+        </div>
+        <h3 class="preload_text text-center">{{cuisinectrl.cuisines.length?cuisinectrl.cuisines.length+'
+            Cuisines':'Fetching food'}}</h3>
+    </ion-content>
+</ion-view>

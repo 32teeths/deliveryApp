@@ -1,0 +1,33 @@
+<ion-view view-title="Add Address">
+    <ion-content class="padding main_content" has-bouncing="true" locking="false">
+        <div class="card" ng-hide="addressctrl.type_selected||addressctrl.editMode">
+            <div class="item item-avatar" ng-click="addressctrl.findLocation()"
+                 ng-if="!addressctrl.finding_location&&!addressctrl.location">
+                <img src="mcfly.jpg">
+                <h2>Locate Me</h2>
+                <p>Let us find you</p>
+            </div>
+            <div class="item" ui-sref="tab.map">
+                <p>Find on Map</p>
+            </div>
+
+            <div class="item text-center" ng-if="addressctrl.finding_location">
+                <ion-spinner icon="spiral"></ion-spinner>
+            </div>
+            <div class="item item item-text-wrap item-button-right" ng-if="addressctrl.location">
+                {{addressctrl.location}}
+                <button class="button button-outline button-positive" ng-click="addressctrl.findLocation()">
+                    <i class="icon ion-ios-refresh"></i>
+                </button>
+            </div>
+
+            <div class="item" ng-click="addressctrl.chooseType(true)">
+                Enter Manually
+            </div>
+        </div>
+        <div ng-if="(addressctrl.manual==true&&addressctrl.type_selected)||addressctrl.editMode" address-form
+             class="list" address-id="addressctrl.address_id" address-list="addressctrl.addresslist"
+             edit-mode="addressctrl.editMode">
+        </div>
+    </ion-content>
+</ion-view>

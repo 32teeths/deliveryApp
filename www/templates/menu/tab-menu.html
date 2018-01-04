@@ -1,0 +1,20 @@
+<ion-view view-title="Select a Dish">
+    <ion-content class="padding main_content">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" placeholder="Search">
+          </label>
+        </div>
+        <div class="list">
+            <h3 class="preload_text text-center" ng-show="menuctrl.list_empty">Looks like there are no dishes under this category available
+                now</h3>
+            <a class="item item-avatar" href="#" ng-repeat="(key,item) in menuctrl.menu" ui-sref="tab.item({'item_id':item.$id})">
+              <img src="img/icons/heart.png">
+              <h2>{{item.dish_name}}</h2>
+              <p>{{item.dish_caption}}</p>
+            </a>
+        </div>
+        <h3 class="preload_text text-center" ng-hide="menuctrl.list_empty">{{menuctrl.menu.length?menuctrl.menu.length+' items to eat now':'Fetching Menu'}}</h3>
+    </ion-content>
+</ion-view>

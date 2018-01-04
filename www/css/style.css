@@ -1,0 +1,95 @@
+/* Empty. Add your own CSS if you like */
+
+.complete {
+    border: 1px solid green;
+}
+
+.header-top {
+    border-bottom: 1px solid;
+    /*border-top:2px solid ;*/
+    /*border-top-color: #920F0F!important;*/
+}
+
+/*Tabs CSs*/
+
+.tab-item-active {
+    /*border-top:2px solid;*/
+}
+
+/*tabs ends*/
+
+.blur {
+    opacity: 0.2;
+}
+
+.main_content {
+    background: whitesmoke;
+}
+
+.order-now-button {
+    background: #32CD95;
+}
+
+.preload_text {
+    color: #ADADAD;
+}
+
+.delivery_type .item-radio {
+    margin-top: 0px;
+    margin-bottom:0px;
+    /*border: 2px solid;*/
+}
+
+.delivery_type .item-radio .item-content {
+    background:whitesmoke;
+}
+
+.delivery_type .item-radio input:checked ~ .item-content {
+    background:white!important;
+}
+.total_title {
+    color: brown;
+}
+
+.rate-bar {
+    margin: 0;
+    background: white;
+    border-bottom: 1px solid brown;
+    margin-bottom: 10px;
+}
+
+.basket-items {
+    max-height: 120px;
+    overflow-y: scroll;
+}
+
+.multiple-price {
+    border: 1px solid #ccc !important;
+}
+
+.gray-text {
+    color: gray;
+}
+.slim-text{
+    font-weight: 100;
+}
+
+.brown-text{
+    color:brown!important;
+}
+
+.scheduled-date-wrapper{
+    padding:5px 15px!important;
+}
+
+.no-margin{
+    margin:0px!important;
+}
+
+.margin-bottom-10{
+    margin-bottom:10px!important;
+}
+
+.margin-top-10{
+   margin-top:10px!important;
+}

@@ -1,0 +1,15 @@
+<ion-tabs class="tabs-icon-top tabs-stable tabs-color-active-assertive">
+  <ion-tab ui-sref="tab.cuisine" title="Menu" icon-off="ion-ios-book-outline" icon-on="ion-ios-book-outline">
+    <ion-nav-view name="tab-cuisine"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="Orders" ui-sref ="tab.orders" icon-off="ion-ios-recording-outline" icon-on="ion-ios-recording" href="#/tab/chats">
+    <ion-nav-view name="tab-orders"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab badge ="tabctrl.basket.length" badge-style = "badge-dark" title="Basket" ui-sref="tab.basket" icon-off="ion-ios-briefcase-outline" icon-on="ion-ios-briefcase" href="#/tab/account">
+    <ion-nav-view name="tab-basket"></ion-nav-view>
+  </ion-tab>
+  <ion-tab title="More" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/account">
+    <ion-nav-view name="tab-account"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>

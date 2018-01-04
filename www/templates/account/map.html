@@ -1,0 +1,82 @@
+<ion-view view-title="Pick your location">
+
+    <ion-content scroll="false" class="map_canvas main_content" ng-show="mapctrl.map_loaded">
+
+        <div class="map-input-wrapper">
+            <label class="item item-input map-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search">
+            </label>
+        </div>
+        <map lat="mapctrl.lat" long="mapctrl.long" on-create="mapctrl.mapCreated(map)"></map>
+
+        <div class="center-marker"></div>
+
+        <div class="center-button">
+            <button class="button button-balanced" ng-click="mapctrl.confirmLocation()">
+                <i class="icon ion-ios-checkmark-empty"></i>
+            </button>
+        </div>
+    </ion-content>
+    <ion-content ng-hide="mapctrl.map_loaded" class="main_content">
+        <h3 class="preload_text text-center">Loading Map..</h3>
+    </ion-content>
+
+</ion-view>
+
+
+
+
+<style type="text/css">
+    html, body { height: 100%; margin: 0; padding: 0; }
+    #map { height: 100%; }
+
+
+    map {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .map-input{
+        position: absolute;
+        top:10%;
+        width: 90%;
+        background: white;
+    }
+    .map-input-wrapper{
+        width: 89%;
+        margin: auto;
+    }
+    .scroll {
+        height: 100%;
+    }
+    .center-marker{
+        position:absolute;
+        /*url of the marker*/
+        background:url(http://maps.gstatic.com/mapfiles/markers2/marker.png) no-repeat;
+        /*center the marker*/
+        top:50%;left:50%;
+        z-index:1;
+        /*fix offset when needed*/
+        margin-left:-10px;
+        margin-top:-34px;
+        /*size of the image*/
+        height:34px;
+        width:20px;
+        cursor:pointer;
+    }
+
+    .center-button{
+        position:absolute;
+        /*center the marker*/
+        bottom:2%;left:43%;
+        z-index:1;
+        /*size of the image*/
+        height:100px;
+        width:100px;
+        cursor:pointer;
+    }
+
+</style>

@@ -1,0 +1,102 @@
+<ion-view view-title="Basket" cache-view="false">
+    <ion-content class=" main_content">
+        <!--if basket is empty-->
+        <div class="text-center" style="padding-top:100px;" ng-if="!basketctrl.order.basket.length">
+            <img class="" src="img/icons/empty_basket.png" alt="" />
+
+            <h3 id="">Your basket is empty</h3>
+
+            <p>Looks like there is nothing in your basket.</p>
+            <button style="margin-top:80px;" ui-sref="tab.cuisine" class="button button-outline button-assertive">
+                Order Food Now
+            </button>
+        </div>
+        <!--end-->
+        <!--If basket is not empty-->
+        <div class="" ng-if="basketctrl.order.basket.length">
+            <div class="card">
+                <div class="row ">
+                    <div class="col col-60">
+                        <img style="height: 80px;" src="img/icons/cookie.png" alt="">
+                    </div>
+                    <div class="col col-40 text-right">
+                        <h2 class="total_title">Total </h2>
+
+                        <h3 class=""><span class="slim-text">Rs </span><b>{{basketctrl.order.total+0.05*basketctrl.order.total}}</b></h3>
+                    </div>
+                </div>
+            </div>
+            <!--View the basket items here-->
+            <div class="card list">
+                <ion-scroll direction="y" class="basket-items">
+
+                    <div class="row item" ng-repeat="item in basketctrl.order.basket track by item.dish_id">
+                        <div class="col col-10">
+                            {{item.dish_quantity}}
+                        </div>
+                        <div class="col col-65">
+                            {{item.dish_name}}
+                            <span ng-if="item.selected_choice">
+                            [ {{item.selected_choice.name}} ]
+                        </span>
+                        </div>
+                        <div class="col col-25">
+                            <span class="slim-text">Rs </span> {{item.dish_quantity*item.dish_price}}
+                        </div>
+                    </div>
+                </ion-scroll>
+
+                <div class="row item">
+                    <div class="col col-10">
+                        <!--+-->
+                    </div>
+                    <div class="col col-65">
+                        <small class="gray-text">Taxes and extra</small>
+
+                    </div>
+                    <div class="col col-25">
+                        <small><span class="slim-text">Rs </span>{{0.05*basketctrl.order.total}}</small>
+                    </div>
+                </div>
+                <div class="row item">
+                    <div class="col col-10">
+                        <!--+-->
+                    </div>
+                    <div class="col col-60">
+                        <b>Grand Total</b>
+
+                    </div>
+                    <div class="col col-30 text-right">
+                        <b><span class="slim-text">Rs </span>{{basketctrl.order.total+0.05*basketctrl.order.total}}</b>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-no-padding delivery_type">
+                <div class="col">
+                    <ion-radio class="" ng-model="basketctrl.order.delivery_type" ng-value="0">
+                        Pick Up
+                        <p class="brown-text"><small>in 20 minutes</small></p>
+                    </ion-radio>
+                </div>
+                <div class="col">
+                    <ion-radio class="" ng-model="basketctrl.order.delivery_type" ng-value="1">
+                        Deliver it
+                        <p class="brown-text"><small>in 45 minutes</small></p>
+                    </ion-radio>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-20">
+                    <button class="button button-block  button-dark ion-ios-trash-outline" ng-click="basketctrl.clearBasket()">
+                    </button>
+                </div>
+                <div class="col col-80">
+                    <button ng-click="basketctrl.checkout()" class="button button-block  button-energized icon-right ion-ios-arrow-right">
+                        Provide Details
+                    </button>
+                </div>
+            </div>
+            <!--Basket items end-->
+        </div>
+    </ion-content>
+</ion-view>

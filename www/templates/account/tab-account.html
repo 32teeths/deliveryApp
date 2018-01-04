@@ -1,0 +1,39 @@
+<ion-view view-title="Account">
+    <ion-content class="main_content">
+        <div class="list card" ng-show="accountctrl.account">
+            <div class="item item-avatar">
+                <img ng-src="{{accountctrl.account.photoURL}}">
+
+                <h2>{{accountctrl.account.displayName}}</h2>
+
+                <p>Linked {{accountctrl.provider}} account</p>
+            </div>
+        </div>
+        <div class="padding card text-center" ng-hide="accountctrl.account">
+            <!--Login Buttons-->
+            <div login-handler auth="accountctrl.authData" on-login="accountctrl.loadAccount()"></div>
+        </div>
+        <div class="list card">
+            <a ui-sref="tab.address" class="item item-icon-right" ng-show="accountctrl.account">
+                Saved Address
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a class="item" href="#" ng-click="accountctrl.updatePhoneNumber()" ng-show="accountctrl.account">
+                Phone Number
+            <span class="item-note">
+              {{accountctrl.phone.$value}}
+            </span>
+            </a>
+            <a href="#" class="item ">
+                About Us
+            </a>
+            <a href="#" class="item ">
+                Rate Us
+            </a>
+            <a href="#" class="item " ng-click="accountctrl.logOut()" ng-show="accountctrl.account">
+                Log Out
+            </a>
+        </div>
+        <h6 class="padding-left dark">Hotel Sagar . All Rights Reserved , 2015</h6>
+    </ion-content>
+</ion-view>

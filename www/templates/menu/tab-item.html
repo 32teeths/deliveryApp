@@ -1,0 +1,48 @@
+<ion-view view-title="Add Item">
+    <ion-content class="padding main_content">
+        <div class="list card padding">
+            <h4 class="padding">
+                <strong>{{itemctrl.order.dish_name}}</strong>
+            </h4>
+
+            <div class="row">
+                <div class="col col-33 ">
+                    <h5 class="">Basic Price</h5>
+                </div>
+                <div class="col col-67 text-right" ng-if="!itemctrl.multiple_price">
+                    <h4 class="">
+                        <strong>Rs {{itemctrl.order.dish_price}}</strong>
+                    </h4>
+                </div>
+                <div class="col col-67" ng-if="itemctrl.multiple_price">
+                    <ion-radio class="multiple-price" ng-model="itemctrl.order.selected_choice" ng-repeat="choice in itemctrl.multiple_choices"
+                               ng-value="choice">
+                        {{choice.name}}
+                        <strong>Rs {{choice.dish_price}}</strong>
+                    </ion-radio>
+                </div>
+            </div>
+
+            <h3 class="text-center"><strong> Quantity {{itemctrl.order.dish_quantity}}</strong></h3>
+
+            <div class="button-bar">
+                <a ng-click="itemctrl.reduceQuantity()" class="button  icon ion-minus-round button-stable"></a>
+                <a ng-click="itemctrl.addQuantity()" class="button icon ion-plus-round button-stable"></a>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Total
+                </div>
+                <div class="col text-right">
+                    <h4 class="">
+                        <strong>Rs {{itemctrl.multiple_price?
+                            itemctrl.order.dish_quantity*itemctrl.order.selected_choice.dish_price:
+                            itemctrl.order.dish_price*itemctrl.order.dish_quantity}}
+                        </strong>
+                    </h4>
+                </div>
+            </div>
+            <button class="button button-block button-clear button-balanced button-outline" ng-click="itemctrl.addtoBasket()">Add to Basket</button>
+        </div>
+    </ion-content>
+</ion-view>

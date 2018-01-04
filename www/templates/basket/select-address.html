@@ -1,0 +1,39 @@
+<ion-view view-title="Checkout" cache-view="false">
+    <ion-content class="padding main_content">
+        <div class="padding card" ng-hide="checkoutctrl.authData">
+            <div login-handler auth="checkoutctrl.authData" on-login="checkoutctrl.loadAccount()"></div>
+        </div>
+        <div ng-show="checkoutctrl.authData">
+            <p class="text-center gray-text">Delivery Address</p>
+
+            <div class="list card margin-top-10 margin-bottom-10">
+                <div class="item text-center" ng-show="checkoutctrl.loading">
+                    <ion-spinner icon="lines" class="spinner-assertive"></ion-spinner>
+                </div>
+                <div class="item item-button-right" ng-hide="checkoutctrl.loading">
+                    {{checkoutctrl.order.selected_address.formatted_address}}
+                    <button class="button button-assertive button-clear">
+                        <i class="icon ion-edit"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="row col text-center" ng-show="checkoutctrl.addresslist.length &&checkoutctrl.authData">
+            <h4 id="" ng-hide="checkoutctrl.addresslist.length">Looks like there are no saved address</h4>
+        </div>
+        <div class="list card" ng-hide="checkoutctrl.loading">
+            <a class="item" href="#" ng-click="checkoutctrl.updatePhoneNumber()">
+                Phone Number
+                <span class="item-note">{{checkoutctrl.order.phone.$value}}</span>
+                <span class="item-note" ng-show="checkoutctrl.loading">
+                    <ion-spinner icon="lines" class="spinner-assertive"></ion-spinner>
+                </span>
+            </a>
+        </div>
+        <button ng-show="checkoutctrl.authData&&!checkoutctrl.loading"
+                class="button button-block button-outline  button-assertive icon-right ion-ios-arrow-right"
+                ng-click="checkoutctrl.confirmOrder()">
+            Confirm Order
+        </button>
+    </ion-content>
+</ion-view>

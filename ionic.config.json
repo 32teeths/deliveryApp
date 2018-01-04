@@ -1,0 +1,14 @@
+{
+  "name": "sagar-client",
+  "app_id": "38d20f5f",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*",
+    "www/**/*",
+    "!www/lib/**/*",
+    "!www/**/*.map"
+  ]
+}

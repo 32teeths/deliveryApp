@@ -1,0 +1,29 @@
+<ion-view view-title="Address">
+    <ion-nav-buttons side="secondary">
+        <button class="button button-icon icon ion-ios-plus-outline" ui-sref="tab.newaddress"></button>
+    </ion-nav-buttons>
+    <ion-content class="padding main_content">
+        <ion-list>
+            <ion-item ng-repeat="row in addressctrl.addresslist" type="item-text-wrap">
+                <!--for manual address-->
+                <div class="row" ng-if="row.address_type=='manual'" ui-sref="tab.newaddress({id:row.$id})">
+                    <p>
+                        {{row.address.city}},{{row.address.location}}
+                    </p>
+                </div>
+                <!--for map address-->
+                <div class="row" ng-if="row.address_type=='map'" ui-sref="tab.map({id:row.$id})">
+                    <p class="">
+                        {{row.formatted_address}}
+                    </p>
+                </div>
+                <!--for gps address-->
+                <div class="row" ng-if="row.address_type=='gps'" ui-sref="tab.map({id:row.$id})">
+                    <p class="">
+                        {{row.formatted_address}}
+                    </p>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
